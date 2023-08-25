@@ -27,12 +27,32 @@ function navigateFolder(folderNumber) {
 
       document.querySelector('#folderContent0').style.display = "none";
       document.querySelector('#folderContent2').style.display = "none";
+      document.querySelector('#folderContent3').style.display = "none";
+      document.querySelector('#folderContent4').style.display = "none";
       break;
     case 2:
       document.querySelector('#folderContent2').style.display = "block";
 
       document.querySelector('#folderContent0').style.display = "none";
       document.querySelector('#folderContent1').style.display = "none";
+      document.querySelector('#folderContent3').style.display = "none";
+      document.querySelector('#folderContent4').style.display = "none";
+      break;
+    case 3:
+      document.querySelector('#folderContent3').style.display = "block";
+
+      document.querySelector('#folderContent0').style.display = "none";
+      document.querySelector('#folderContent1').style.display = "none";
+      document.querySelector('#folderContent2').style.display = "none";
+      document.querySelector('#folderContent4').style.display = "none";
+      break;
+    case 4:
+      document.querySelector('#folderContent4').style.display = "block";
+
+      document.querySelector('#folderContent0').style.display = "none";
+      document.querySelector('#folderContent1').style.display = "none";
+      document.querySelector('#folderContent2').style.display = "none";
+      document.querySelector('#folderContent3').style.display = "none";
       break;
 
     default:
@@ -47,6 +67,22 @@ function startHacking() {
     updateStatus("You need to open ports first.");
   }
 }
+
+//codes
+function generateRandomCode() {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let code = '';
+
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    code += letters.charAt(randomIndex);
+  }
+
+  return code;
+}
+
+let codes = [generateRandomCode(),generateRandomCode(),generateRandomCode(),generateRandomCode()];
+alert(codes.join(", "));
 
 // Timer logic
 const interval = setInterval(() => {

@@ -45,3 +45,13 @@ body {
   justify-content: left;
   min-width: 50%;
 }
+input,
+button{
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 5px;
+}
