@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Mini-Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="game-container">
+    <div class="timer">Time left until server self-destructs: <span id="time">120</span> seconds</div>
+    <div id="folders">
+      <div class="folderGroup">
+        <button class="folder" id="folder1" onclick="navigateFolder(1)">Folder 1</button><br>
+        <button class="folder" id="folder2" onclick="navigateFolder(2)">Folder 2</button><br>
+        <button class="folder" id="folder3">Folder 3</button><br>
+        <button class="folder" id="folder4">Folder 4</button><br>
+      </div>
+      <div id="folderContent0" class="folderContent" style="display:block;">
+        <h3>No folders opened.</h3>
+      </div>
+      <div id="folderContent1" class="folderContent">
+        <h3>Folder 1</h3>
+        The specialists analyzed Aenigmam Primum. They determine that they are plotting against us. The first. <br>Luckily the port unlockers are contained in folders 1 & 2, and the server unlockers are in folders 3 & 4. Without them accessing the port, there's no way they can shut down our latest work. <br>For the unfortunate who forgot the password for port unlocker 1, it's '<span id="unlocker1pswd"></span>'. Don't forget that mirrors might be helpful for folder 2.
+      </div>
+      <div id="folderContent2" class="folderContent">
+        <h3>2 Folder</h3>
+        2023, 20th May <br>
+        task. our finished We. free. home be will we interfere, doesn't Aenigmam as long  2. unlocker forgot guy another but, code port the down write shouldn't probably I As. .'<span id="unlocker2pswd"></span>' It's
+      </div>
+      <div class="folderGroup">
+        <input type="text" placeholder="Unlocker 1">
+        <input type="text" placeholder="Unlocker 2">
+        <button>Open port 22</button>
+        <input type="text" placeholder="Unlocker 3">
+        <input type="text" placeholder="Unlocker 4">
+        <button>Hack</button>
+      </div>
+    </div>
+
+    <div class="timer">HECKER TERMINAL LLC. V1.0.0 CURRENTLY HACKING: PRIMUM INC</div>
+  </div>
+
+  <script src="script.js">
+
+  </script>
+</body>
+
+</html>
