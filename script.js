@@ -1,7 +1,26 @@
-let timeLeft = 120;
+let timeLeft = 50;
 let hacking = false;
 let portsOpened = false;
 let currentFolder = 1;
+
+//codes
+function generateRandomCode() {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let code = '';
+
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    code += letters.charAt(randomIndex);
+  }
+
+  return code;
+}
+
+let codes = [generateRandomCode(), generateRandomCode(), generateRandomCode(), generateRandomCode()];
+document.querySelector('#unlocker1pswd').textContent = codes[0];
+document.querySelector('#unlocker2pswd').textContent = codes[1];
+document.querySelector('#unlocker3pswd').textContent = codes[2];
+document.querySelector('#unlocker4pswd').textContent = codes[3];
 
 function updateTime() {
   document.getElementById("time").textContent = timeLeft;
@@ -13,10 +32,12 @@ function updateStatus(message) {
 
 function openPorts() {
   if (!portsOpened) {
-    portsOpened = true;
-    document.getElementById("open-ports").disabled = true;
-    document.getElementById("folder1").style.display = "block";
-    updateStatus("Ports opened. Start navigating through the folders.");
+    if (document.querySelector('#unlocker1input').value.toUpperCase() == codes[0] && document.querySelector('#unlocker2input').value.toUpperCase() == codes[1]) {
+      portsOpened = true;
+      document.getElementById("open-ports").disabled = true;
+      document.getElementById("open-ports").textContent = "Ports 22 & 23 opened. Start stage 2.";
+    }
+
   }
 }
 
@@ -61,40 +82,23 @@ function navigateFolder(folderNumber) {
 }
 
 function startHacking() {
-  if (!hacking && portsOpened) {
-    updateStatus("You need to navigate the folders first.");
-  } else if (!hacking && !portsOpened) {
-    updateStatus("You need to open ports first.");
+  if (portsOpened == true && document.querySelector('#unlocker3input').value.toUpperCase() == codes[2] && document.querySelector('#unlocker4input').value.toUpperCase() == codes[3]) {
+    hacking = true;
+    document.querySelector('#hacking').textContent = 'SERVER DATA: MMFSAASBNNN';
+    document.querySelector('#hacking').disabled = true;
   }
 }
 
-//codes
-function generateRandomCode() {
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  let code = '';
-
-  for (let i = 0; i < 10; i++) {
-    const randomIndex = Math.floor(Math.random() * letters.length);
-    code += letters.charAt(randomIndex);
-  }
-
-  return code;
-}
-
-let codes = [generateRandomCode(),generateRandomCode(),generateRandomCode(),generateRandomCode()];
-alert(codes.join(", "));
 
 // Timer logic
 const interval = setInterval(() => {
   if (hacking) {
     clearInterval(interval);
-    updateStatus("Hacking complete.");
   } else {
     timeLeft--;
     updateTime();
     if (timeLeft <= 0) {
       clearInterval(interval);
-      updateStatus("Hacking attempt failed!");
       setTimeout(() => {
         location.reload();
       }, 2000);

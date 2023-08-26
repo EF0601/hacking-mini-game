@@ -10,7 +10,7 @@
 
 <body>
   <div id="game-container">
-    <div class="timer">Time left until server self-destructs: <span id="time">120</span> seconds</div>
+    <div class="timer">Time left until server self-destructs: <span id="time">50</span> seconds</div>
     <div id="folders">
       <div class="folderGroup">
         <button class="folder" id="folder1" onclick="navigateFolder(1)">Folder 1</button><br>
@@ -46,12 +46,12 @@
         existence.
       </div>
       <div class="folderGroup">
-        <input type="text" placeholder="Unlocker 1">
-        <input type="text" placeholder="Unlocker 2">
-        <button>Open port 22</button>
-        <input type="text" placeholder="Unlocker 3">
-        <input type="text" placeholder="Unlocker 4">
-        <button>Hack</button>
+        <input type="text" placeholder="Unlocker 1" id="unlocker1input">
+        <input type="text" placeholder="Unlocker 2" id="unlocker2input">
+        <button id="open-ports" onclick="openPorts()">Open port 22</button>
+        <input type="text" placeholder="Unlocker 3" id="unlocker3input">
+        <input type="text" placeholder="Unlocker 4" id="unlocker4input">
+        <button onclick="startHacking()" id="hacking">Hack</button>
       </div>
     </div>
 
